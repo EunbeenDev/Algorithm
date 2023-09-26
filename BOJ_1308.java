@@ -1,5 +1,5 @@
+//Silver_D-Day
 import java.util.*;
-
 public class BOJ_1308 {
 
     static int[] day(int year) {
