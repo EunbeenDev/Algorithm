@@ -1,3 +1,4 @@
+package week1;
 //Silver_트리 순회
 import java.io.*;
 import java.util.Scanner;

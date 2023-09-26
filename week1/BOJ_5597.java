@@ -1,3 +1,4 @@
+package week1;
 //Bronze_과제 안 내신 분..?
 import java.util.*;
 

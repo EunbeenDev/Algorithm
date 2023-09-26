@@ -1,3 +1,4 @@
+package week1;
 //Silver_D-Day
 import java.util.*;
 public class BOJ_1308 {

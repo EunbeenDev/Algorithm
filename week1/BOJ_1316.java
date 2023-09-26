@@ -1,3 +1,4 @@
+package week1;
 //Silver_그룹 단어 체커
 import java.util.*;
 public class BOJ_1316 {
