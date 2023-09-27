@@ -20,7 +20,7 @@ public class BOJ_1991 {
         }
     }
 
-    static int N;
+    static int cnt;
     static Node head = new Node('A',null,null);
 
     static void insertNode(Node temp, char root,char left, char right) {
@@ -60,9 +60,9 @@ public class BOJ_1991 {
 
     public static void main(String[] args) throws IOException {
         Scanner sc=new Scanner(System.in);
-        N = Integer.parseInt(sc.nextLine());
+        cnt = Integer.parseInt(sc.nextLine());
 
-        for(int i=0;i<N;i++) {
+        for(int i=0;i<cnt;i++) {
             String [] str = sc.nextLine().split(" ");
             char root = str[0].charAt(0);
             char left = str[1].charAt(0);
