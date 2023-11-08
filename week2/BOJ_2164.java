@@ -14,6 +14,4 @@ public class BOJ_2164 {
             q.add(to_last);
         }
         System.out.print(q.poll());
-    }
-
-}
+    }}

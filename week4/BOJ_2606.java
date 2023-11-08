@@ -45,8 +45,6 @@ public class BOJ_2606 {
         }
 
         result.remove(Integer.valueOf(1));
-
         System.out.print(result.size());
-
     }
 }
