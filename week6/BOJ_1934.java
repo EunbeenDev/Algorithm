@@ -3,33 +3,23 @@ package week6;
 import java.util.*;
 public class BOJ_1934 {
     private static int N;
-    private static int value;
-    private static ArrayList<Integer> arr;
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        StringTokenizer st=new StringTokenizer(sc.nextLine());
-        N=Integer.parseInt(st.nextToken());
-        value=Integer.parseInt(st.nextToken());
-        arr=new ArrayList<>();
-        int coin=0;
-
+        N=Integer.parseInt(sc.nextLine());
+        StringTokenizer st;
         for(int i=0; i<N; i++){
-            int new_value=Integer.parseInt(sc.nextLine());
-            if(new_value>value){break;}
-            else{arr.add(new_value);}
+            st=new StringTokenizer(sc.nextLine());
+            int num1=Integer.parseInt(st.nextToken());
+            int num2=Integer.parseInt(st.nextToken());
+
+            System.out.println((num1*num2)/GCD(num1,num2));
         }
 
-        int i=arr.size()-1;
+    }
 
-        while(value!=0){
-            int share=value/(arr.get(i)); //몫
-            int remain=value%(arr.get(i)); //나머지
-
-            value=remain;
-            coin+=share;
-
-            i--;
-        }
-        System.out.print(coin);
+    private static int GCD(int a, int b) {
+        int r=a%b;
+        while(r!=0){ return GCD(b,r); }
+        return b;
     }
 }
