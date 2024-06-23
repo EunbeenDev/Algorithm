@@ -1,25 +1,27 @@
-import java.io.*;
-import java.util.*;
 
-public class Main{
-    public static void main(String[] args) throws IOException {
+import java.util.*;
+import java.io.*;
+public class Main {
+    public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
         int N = Integer.parseInt(br.readLine());
-        int M = Integer.parseInt(br.readLine());
-        int answer = 0;
-        if(N!=1){
-            //우선순위 큐
-            PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
-            for(int i=1;i<N;i++)
+        int Dasom = Integer.parseInt(br.readLine());
+        int cnt = 0;
+        // pq.add(Dasom);
+        if(N>1){
+            for(int i=1; i<N; i++){
                 pq.add(Integer.parseInt(br.readLine()));
-            while(pq.peek() >= M){
-                int cur = pq.poll();
-                cur--; M++; answer++;
-                pq.add(cur);
+            }
+
+            while(pq.peek() >= Dasom){
+                int max = pq.poll();
+                Dasom++;
+                max--;
+                pq.add(max);
+                cnt++;
             }
         }
-        bw.write(answer + "");
-        bw.flush();
+        System.out.println(cnt);
     }
 }
