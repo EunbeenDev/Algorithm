@@ -1,36 +1,60 @@
+import java.io.*;
 import java.util.*;
+
 public class Main {
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int T = Integer.parseInt(String.valueOf(sc.nextLine()));
+    static class Docs implements Comparable<Docs> {
+        int index;
+        int prior;
 
-        for (int i = 0; i < T; i++) {
-            int a = sc.nextInt();
-            int b = sc.nextInt();
-            int cnt = 0;
-            Queue<int[]> q = new LinkedList<>();
-            for (int j = 0; j < a; j++) {
-                q.add(new int[]{j, sc.nextInt()});
+        Docs(int index, int prior) {
+            this.index = index;
+            this.prior = prior;
+        }
+
+        @Override
+        public int compareTo(Docs d) {
+            return d.prior - this.prior;
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int N = Integer.parseInt(br.readLine());
+
+        for (int i = 0; i < N; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int num = Integer.parseInt(st.nextToken());
+            int targetIndex = Integer.parseInt(st.nextToken());
+
+            Queue<Docs> queue = new LinkedList<>();
+            PriorityQueue<Docs> pq = new PriorityQueue<>();
+
+            StringTokenizer st2 = new StringTokenizer(br.readLine());
+
+            for (int j = 0; j < num; j++) {
+                int p = Integer.parseInt(st2.nextToken());
+                Docs doc = new Docs(j, p);
+                queue.add(doc);
+                pq.add(doc);
             }
 
-            while (true) {
-                int[] present = q.remove();
-                boolean tf = true;
+            int printOrder = 0;
+            while (!queue.isEmpty()) {
+                Docs current = queue.poll();
 
-                for (int[] queue : q) {
-                    if (queue[1] > present[1]) {
-                        tf = false;
+                if (current.prior == pq.peek().prior) {
+                    pq.poll();
+                    printOrder++;
+                    if (current.index == targetIndex) {
+                        System.out.println(printOrder);
                         break;
                     }
+                } else {
+                    queue.add(current);
                 }
-
-                if (tf) {
-                    cnt++;
-                    if (present[0] == b){break;}
-                } else {q.add(present);}
             }
-            System.out.println(cnt);
         }
     }
 }
