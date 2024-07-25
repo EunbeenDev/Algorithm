@@ -1,15 +1,16 @@
-//Gold_AC
 import java.io.*;
 import java.util.*;
+
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        int t = Integer.parseInt(sc.nextLine());
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int t = Integer.parseInt(br.readLine());
 
         for (int i = 0; i < t; i++) {
-            String commands = sc.nextLine();
-            int n = Integer.parseInt(sc.nextLine());
-            String input = sc.nextLine();
+            String commands = br.readLine();
+            int n = Integer.parseInt(br.readLine());
+            String input = br.readLine();
 
             Deque<Integer> deque = new LinkedList<>();
             StringTokenizer st = new StringTokenizer(input.substring(1, input.length() - 1), ",");
