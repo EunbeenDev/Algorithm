@@ -1,7 +1,7 @@
-
-//Silver_바이러스
 import java.util.*;
 import java.util.stream.Collectors;
+
+
 public class Main {
     private static int N;
     private static int P;
@@ -25,11 +25,6 @@ public class Main {
             arr[num1].add(num2);
             arr[num2].add(num1); //무방향 그래프이므로 index num1,num2 양쪽에 add
         }
-
-//        //배열 확인
-//        for (int i = 1; i <= arr.length-1; i++) {
-//            System.out.println(arr[i]);
-//        }
 
         for(int i=0; i<arr[1].size();i++){
             result.add(arr[1].get(i));
