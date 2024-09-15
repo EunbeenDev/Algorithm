@@ -1,6 +1,5 @@
 import java.util.*;
  
- 
 public class Main {
 	public static void main(String[] args) {
     
@@ -15,16 +14,16 @@ public class Main {
 		
 		Arrays.sort(arr, new Comparator<String>() {
 			public int compare(String s1, String s2) {
-				// 단어 길이가 같을 경우 
+				// 단어 길이가 같은 경우
 				if (s1.length() == s2.length()) {
 					return s1.compareTo(s2);
 				} 
-				// 그 외의 경우 
 				else {
 					return s1.length() - s2.length();
 				}
 			}
 		});
+        
 		System.out.println(arr[0]);
 		
 		for (int i = 1; i < N; i++) {
