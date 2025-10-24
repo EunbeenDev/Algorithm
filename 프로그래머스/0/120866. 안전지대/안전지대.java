@@ -3,10 +3,11 @@ class Solution {
     public int solution(int[][] b) {
         int answer = 0;
         int n = b.length;
-        int[][] visit = new int[n+2][n+2]; // 가장자리 
+        int[][] visit = new int[n+2][n+2]; // 방문 처리를 위한 배열
         
-        int[][] board = new int[n+2][n+2];
-                
+        int[][] board = new int[n+2][n+2]; // 가장자리를 포함한 보드 복사용 2차원 배열
+                 
+        // 보드 복사
         for(int i=0; i<n; i++){
             for(int j=0; j<n; j++){
                 board[i+1][j+1]=b[i][j];
