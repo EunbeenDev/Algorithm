@@ -5,8 +5,7 @@ class Solution {
         for(int i=0; i<s.length(); i++){
             char c = s.charAt(i);
             if(i==0){
-                if(c>='0'&&c<'9'){sb.append(c);}
-                else{sb.append(String.valueOf(c).toUpperCase());}
+                sb.append(String.valueOf(c).toUpperCase());
             }
             else{
                 if(s.charAt(i-1) == ' '){
