@@ -1,71 +1,50 @@
 import java.io.*;
 import java.util.*;
- 
+
 public class Main {
-	public static void main(String[] args) throws IOException {
-		
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringBuilder sb = new StringBuilder();
-		
-		Deque<Integer> q = new LinkedList<>();
-		
-		int N = Integer.parseInt(br.readLine());
-		
-		StringTokenizer command;
-		
-		while(N-- > 0) {
-			command = new StringTokenizer(br.readLine(), " ");	// 문자열 분리 
-			
-			switch(command.nextToken()) {	
-			
-			case "push":
-				q.offer(Integer.parseInt(command.nextToken()));	
-				break;
-			
-			case "pop" :
-				Integer item = q.poll();	
-				if(item == null) {
-					sb.append(-1).append('\n');
-				}
-				else {
-					sb.append(item).append('\n');
-				}
-				break;
-				
-			case "size":	
-				sb.append(q.size()).append('\n');
-				break;
-				
-			case "empty":
-				if(q.isEmpty()) {
-					sb.append(1).append('\n');
-				}
-				else {
-					sb.append(0).append('\n');
-				}
-				break;
-				
-			case "front":
-				Integer ite = q.peek();
-				if(ite == null) {
-					sb.append(-1).append('\n');
-				}
-				else {
-					sb.append(ite).append('\n');
-				}
-				break;
-				
-			case "back":
-				Integer it = q.peekLast();	 
-				if(it == null) {
-					sb.append(-1).append('\n');
-				}
-				else {
-					sb.append(it).append('\n');
-				}
-				break;
-			}
-		}
-		System.out.println(sb);
-	}
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+
+        int l = Integer.parseInt(br.readLine());
+        ArrayDeque<Long> dq = new ArrayDeque<>();
+        for(int i = 0; i<l; i++){
+            StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+            switch(st.nextToken()){
+                case("push"):
+                    dq.addLast(Long.parseLong(st.nextToken())); 
+                    break;
+                case("pop"):
+                    if(dq.size()>0){
+                        sb.append(dq.getFirst()); sb.append("\n");
+                        dq.removeFirst();
+                    }
+                    else{sb.append(-1); sb.append("\n");}
+                    break;
+                case("size"):
+                    sb.append(dq.size()); sb.append("\n");
+                    break;
+                case("empty"):
+                    if(dq.isEmpty()){sb.append(1); }
+                    else{sb.append(0); }
+                    sb.append("\n");
+                    break;
+                case("front"):
+                    if(dq.size()>0){
+                        sb.append(dq.getFirst());
+                    }
+                    else{sb.append(-1);}
+                    sb.append("\n");
+                    break;
+                case("back"):
+                    if(dq.size()>0){
+                        sb.append(dq.getLast());
+                    }
+                    else{sb.append(-1);}
+                    sb.append("\n");
+                    break;
+            }
+        }
+        System.out.println(sb.toString());
+    }
 }
